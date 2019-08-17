@@ -47,10 +47,10 @@ namespace SignalR.Orleans
 
             await _streamSetupLock.WaitAsync();
 
-            if (_streamProvider != null)
-                return;
             try
             {
+                if (_streamProvider != null)
+                    return;
                 await SetupStreams();
             }
             finally
